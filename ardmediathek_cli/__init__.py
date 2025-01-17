@@ -69,7 +69,7 @@ class DownloadJob:
 			args.path_template.format(
 				broadcast_title=broadcast_title,
 				program_title=self.program.title,
-				station_name=self.program.station.name
+				station_name=self.broadcast.station.name
 			)
 		)
 		return output_path
@@ -232,7 +232,8 @@ def main():
 		"-q", "--quality",
 		help="Preferred stream download quality (0=HVGA, 1=VGA, 2=DVGA, 3=HD, 4=FHD)",
 		choices=[0, 1, 2, 3, 4],
-		default=3
+		default=3,
+		type=int
 	)
 	argp_dl.add_argument(
 		"--block-size",
