@@ -12,6 +12,7 @@ import sys
 import time
 from urllib.parse import urlparse
 
+import coloredlogs
 import enlighten
 import miniupnpc
 import prefixed
@@ -24,6 +25,7 @@ download_queue = []
 pbar_man = enlighten.get_manager()
 __requests_cache_backend = requests_cache.backends.filesystem.FileCache("~/.cache/ardmediathek-cli/")
 
+coloredlogs.install()
 logging.addLevelName(35, "MESSAGE")
 
 def get_ip_country():
